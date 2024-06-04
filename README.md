@@ -12,7 +12,8 @@ To run the algorithm, use the following steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the directory where the repository is located.
-3. Run the container by executing the command `docker-compose up`.
+3. Run the app by executing the command `make run ARGS="James Bond"`.
+4. Run the app wit log by executing the command `LOG=1 make run ARGS="James Bond"`.
 
 ## Files
 

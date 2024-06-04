@@ -4,14 +4,15 @@ FROM node:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy package*.json files to the working directory
-COPY package*.json ./
+# Copy all project files to the working directory
+COPY . .
 
 # Install dependencies
 RUN npm install
 
-# Copy all project files to the working directory
-COPY . .
+# Copy docker-entrypoint
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-# Build app
-RUN npm run build
+# Run script
+ENTRYPOINT ["docker-entrypoint.sh"]
